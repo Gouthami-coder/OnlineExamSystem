@@ -1,0 +1,69 @@
+﻿@model OnlineExaminationSystem1.Models.TBL_CATEGORY
+
+@{
+    ViewBag.Title = "Addcategory";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h1 style="text-align:center;background-color:#808080">Addcategory</h1>
+<style>
+    body {
+        background-image: url('../../Content/img/rainbow.jpg');
+        background-size: cover;
+    }
+</style>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Subjects</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.CAT_NAME, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CAT_NAME, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CAT_NAME, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div style="overflow:scroll">
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>ROOM NAME</th>
+                <th>VIEW ALL QUESTIONS</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewData["list"] as List<OnlineExaminationSystem1.Models.TBL_CATEGORY>)
+            {
+            <tr>
+                <td>@item.CAT_ID</td>
+                <td>@item.CAT_NAME</td>
+                <td>@item.CAT_ENCRYPTEDSTRING</td>
+                <td><a class="btn btn-info btn-sm" href="@Url.Action("Viewallquestions",new { id=@item.CAT_ID})">View Questions of This Exam</a></td>
+
+
+            </tr>
+            }
+       
+        </tbody>
+    </table>
+
+
+</div>

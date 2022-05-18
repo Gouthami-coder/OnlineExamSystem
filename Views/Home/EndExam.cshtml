@@ -1,0 +1,30 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EndExam</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-image: url('../../Content/img/waiting.jpg');
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div> 
+        <div class="row" style="color:antiquewhite">
+            <h1 style=" text-align:center">Exam Ended! Thankyou</h1><br />
+
+            <h2 style="text-align:center">Your score is @TempData["score"]</h2>
+        </div>
+    </div>
+</body>
+</html>

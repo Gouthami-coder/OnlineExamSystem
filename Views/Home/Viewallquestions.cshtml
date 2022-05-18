@@ -1,0 +1,64 @@
+﻿@model IEnumerable<OnlineExaminationSystem1.Models.TBL_QUESTIONS>
+
+@{
+    ViewBag.Title = "Viewallquestions";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>Viewallquestions</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.QUESTION_TEXT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OPA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OPB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OPC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OPD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.COP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TBL_CATEGORY.CAT_NAME)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.QUESTION_TEXT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OPA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OPB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OPC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OPD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.COP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TBL_CATEGORY.CAT_NAME)
+        </td>
+      
+    </tr>
+}
+
+</table>
